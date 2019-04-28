@@ -47,16 +47,16 @@ class _HomeState extends State<Home> {
         currentIndex: currentTabIndex,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text("Home"),
+            icon: Icon(Icons.group),
+            title: Text("Gdg"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
-            title: Text("Messages"),
+            icon: Icon(Icons.event),
+            title: Text("Eventi"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text("Profile"),
+            icon: Icon(Icons.info),
+            title: Text("Info"),
           )
         ],
       ),
