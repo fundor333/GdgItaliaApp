@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class GDGItaliaAppTheme {
+  static const greenGoogle= Color(0xFF3CBA54);
+  static const yellowGoogle= Color(0xFFF4C20D);
+  static const redGoogle= Color(0xFFDB3236);
+  static const blueGoogle= Color(0xFF4885ED);
+
   static const brightness = Brightness.light;
-  static const primaryColor = Color(0xFFB388FF);
+  static const primaryColor =  greenGoogle;
+
   static const accentColor = Colors.white;
 
   static const headline =
@@ -15,3 +21,4 @@ class GDGItaliaAppTheme {
 
   static const fontFamily = 'Roboto';
 }
+

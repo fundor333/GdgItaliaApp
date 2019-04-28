@@ -29,7 +29,7 @@ class GdGItalia extends MaterialApp {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       ));
 
-  final home = Home();
+  final home = Home('Gdg Italia App');
 }
 
 class App extends StatelessWidget {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:flip_box_bar/flip_box_bar.dart';
+import 'package:gdg_italia_app/style.dart';
 
 class TabScreen extends StatelessWidget {
   final Color color;
+
   TabScreen(this.color);
 
   @override
@@ -14,9 +17,9 @@ class TabScreen extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
-  Home() : super();
+  final String title;
 
-  final String title = "Flutter Bottom Tab demo";
+  Home(this.title) : super();
 
   @override
   _HomeState createState() => _HomeState();
@@ -25,15 +28,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int currentTabIndex = 0;
   List<Widget> tabs = [
-    TabScreen(Colors.green),
-    TabScreen(Colors.orange),
-    TabScreen(Colors.blue)
+    TabScreen(Colors.white),
+    TabScreen(Colors.white),
+    TabScreen(Colors.white)
   ];
-  onTapped(int index) {
-    setState(() {
-      currentTabIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,23 +40,32 @@ class _HomeState extends State<Home> {
         title: Text(widget.title),
       ),
       body: tabs[currentTabIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onTapped,
-        currentIndex: currentTabIndex,
+      // In Scaffold
+
+      bottomNavigationBar: FlipBoxBar(
+        selectedIndex: currentTabIndex,
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            title: Text("Gdg"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.event),
-            title: Text("Eventi"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            title: Text("Info"),
-          )
+          FlipBarItem(
+              icon: Icon(Icons.group),
+              text: Text("GdG"),
+              frontColor: GDGItaliaAppTheme.blueGoogle,
+              backColor: GDGItaliaAppTheme.blueGoogle),
+          FlipBarItem(
+              icon: Icon(Icons.event),
+              text: Text("Eventi"),
+              frontColor: GDGItaliaAppTheme.yellowGoogle,
+              backColor: GDGItaliaAppTheme.yellowGoogle),
+          FlipBarItem(
+              icon: Icon(Icons.info),
+              text: Text("Info"),
+              frontColor: GDGItaliaAppTheme.redGoogle,
+              backColor: GDGItaliaAppTheme.redGoogle),
         ],
+        onIndexChanged: (newIndex) {
+          setState(() {
+            currentTabIndex = newIndex;
+          });
+        },
       ),
     );
   }
